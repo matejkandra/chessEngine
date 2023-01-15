@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Tile from "./chesstile";
 
 function App() {
+
+    let chessBoard:JSX.Element[];
+
+    chessBoard = []
+
+    let colors:string[] = [`bg-gray-400`, `bg-black`]
+
+    let count:number = 0
+
+    for (let i:number = 0; i < 8; i++) {
+        for (let j:number = 0; j < 8; j++) {
+            chessBoard.push(<Tile key={count} nums={count} color={colors[(i+j)%2]}/>)
+            count++
+        }
+    }
+    console.log(chessBoard.length)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="inline-grid grid-cols-8 gap-0 p-48">
+        {chessBoard}
     </div>
   );
 }
