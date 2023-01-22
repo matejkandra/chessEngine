@@ -14,7 +14,7 @@ function App() {
 
     let count:number = 0
 
-    let initialPos:string = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+    let initialPos:string = "PPP///PPPP/PPP/PPPPPP"
 
     for (let i:number = 0; i < 8; i++) {
         for (let j:number = 0; j < 8; j++) {
@@ -23,9 +23,8 @@ function App() {
         }
     }
     console.log(chessBoard.length)
-    for (let i = 0; i < 8; i++) {
-        console.log(chessBoard[i][0])
-    }
+
+    moveFEN(chessBoard,initialPos)
 
   return (
       <div className="flex justify-center pt-8">
